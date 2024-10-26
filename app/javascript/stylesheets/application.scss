@@ -1,0 +1,10 @@
+@use '~bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: 'ドット文字';
+  src: url('../fonts/BestTen-CRT/BestTen-CRT.otf') format('opentype');
+}
+
+h2 {
+  font-family: 'ドット文字';
+}
