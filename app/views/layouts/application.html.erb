@@ -5,12 +5,89 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+ <script src="https://kit.fontawesome.com/db85b2c059.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="<%= params[:controller].gsub("/", "_") %>_<%= params[:action] %> d-flex flex-column vh-100">
+    <%#= debug params if Rails.env.development? %>
+     <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">Gamerslibrary</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to user_path(current_user.id),class:"nav-link text-light" do %>
+                <i><%= image_tag asset_path('homes.png'),class: "icons" %></i>
+                ホーム
+              <%end%>
+            </li>
+            <li>
+              <%= link_to user_path(current_user.id),class:"nav-link text-light" do %>
+              <i><%= image_tag asset_path('user.png'),class: "icons" %></i>
+                冒険者
+              <%end%>
+            </li>
+             <li>
+               <%= link_to users_path,class:"nav-link text-light" do %>
+                <i><%= image_tag asset_path('book.png'),class: "icons" %></i>
+                Books
+              <%end%>
+            <li>
+              <%= link_to  destroy_user_session_path, method: :delete,class:"nav-link text-light" do %>
+              <i><%= image_tag asset_path('iriguchi.png'),class: "icons" %></i>
+              ログアウト
+              <%end%>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to root_path, class:"nav-link text-light" do %>
+               <i><%= image_tag asset_path('homes.png'),class: "icons" %></i>
+                ホーム
+              <%end%>
+            </li>
+            <li>
+              <%= link_to about_path, class:"text-light nav-link" do  %>
+               <i><%= image_tag asset_path('memo.png'),class: "icons" %></i>
+                サイトについて
+              <%end%>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path, class:"nav-link text-light" do %>
+                <i><%= image_tag asset_path('book.png'),class: "icons" %></i>
+                セーブの新規作成
+              <%end%>
+            </li>
+            <li>
+              <%= link_to new_user_session_path, class:"nav-link text-light" do %>
+              <i><%= image_tag asset_path('iriguchi.png'),class: "icons" %></i>
+                ログイン
+              <%end%>
+            </li>
+         </ul>
+        </div>
+        </div>
+      </nav>
+          <% end %>
+    </header>
+    <main>
+      <p id="notica"></p>
+          <%= yield %>
+    </main>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,37 +1,44 @@
-<div class="container">
+<body>
+<div class="container" id="registrations_new">
   <div class="row" style="text-align: center;">
      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    <h2 class="text-center">Gamers library</h2>
-      <p class="text-center">冒険の書を作成してください</p>
+       
+       
+    <h1 class="text-center">Gamers library</h1>
+      <p class="text-center">セーブデータを作成してください</p>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
+   
+      <div class="field">
+        <%= f.label "イーメール"%><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
 
-    <div class="field text-center">
-      <%= f.label "イーメール"%><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field text-center">
-      <%= f.label "秘密の合言葉" %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> 文字以上)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
-
-    <div class="text-center">
-      <%= f.label "合言葉の確認" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
-    <div class="actions text-center pt-2">
+      <div class="field">
+        <%= f.label "秘密の合言葉" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autofocus: true,autocomplete: "new-password" %>
+      </div>
+  
+      <div class="field">
+        <%= f.label "合言葉の確認" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    
+    <div class="actions pt-5">
       <%= f.submit "セーブする",class:"btn btn-sm btn-success" %>
     </div>
       <% end %>
       <div class="text-center">
-      <%= link_to "冒険の書を開く",new_user_session_path %>
+      <%= link_to "セーブデータをロードする",new_user_session_path %>
+      
       </div>
      </div>  
     </div>  
 </div>
+</body>
+
+
 

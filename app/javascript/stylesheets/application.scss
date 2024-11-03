@@ -2,9 +2,49 @@
 
 @font-face {
   font-family: 'ドット文字';
-  src: url('../fonts/BestTen-CRT/BestTen-CRT.otf') format('opentype');
+  src: url('../fonts/BestTen-CRT.otf') format('opentype');
 }
 
-h2 {
+.container {
   font-family: 'ドット文字';
+}
+
+input  {
+  font-family: Futura, 'Century Gothic', YuGothic!important;
+}
+
+body {
+     background-color: #486d46;
+   background-image: url("../images/background.jpg");
+   background-size: cover;
+   background-attachment: fixed;
+   background-position: center center;
+
+}
+
+.title {
+    font-size: 50px;
+    color: #ffffff;
+}
+
+.coin_icon {
+    width: 30px;
+    height: 27px;
+}
+
+.icons {
+    width: 25px;
+    height: 27px;
+}
+
+.message {
+position: absolute;
+top: 20%;
+padding: 30px;
+margin-left: 50px;
+}
+.admin_icon {
+ margin-left: 800px;
+ width: 200px;
+ height: 300px;
 }
