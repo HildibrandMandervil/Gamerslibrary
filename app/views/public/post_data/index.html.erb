@@ -3,38 +3,38 @@
 <%= render 'public/users/userprofile',user:current_user, post_datum:@post_datum %>
 
 <div class="col-md-7 offset-md-2">
-  <h2>仲間の冒険者</h2>
-    
+  <h2>冒険者たちの記録</h2>
+
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
             <th></th>
-            <th>名前</th>
-            <th>自己紹介</th>
+            <th>タイトル</th>
+            <th>感想</th>
             <th class="col-3"></th>
           </tr>
         </thead>
-    
+
 
         <tbody>
-          <% @users.each do |f| %>
+          <% @post_data.each do |f| %>
             <tr>
               <td>
-                <%= link_to user_path(f.id) do %>
-                  <%= image_tag f.get_profile_image(80,80) %>
+                <%= link_to post_datum_path(f.id) do %>
+                  <%= image_tag f.get_image(80,80) %>
                 <%end%>
               </td>
               <td>
-                <%= link_to user_path(f.id) do %>
-                  <div style="width:150px; word-wrap: break-word;"><%= f.name %></div>
+                <%= link_to post_datum_path(f.id) do %>
+                  <div style="width:150px; word-wrap: break-word;"><%= f.title %></div>
                 <%end%>
               </td>
               <td class="introductionbody">
-                <div style="width:280px; word-wrap: break-word;"><%= f.introduction %></div>
+                <div style="width:280px; word-wrap: break-word;"><%= f.body %></div>
               </td>
             </tr>
           <%end%>
-           
+           <%#= paginate post_data %>
         </tbody>
       </table>
     </div>

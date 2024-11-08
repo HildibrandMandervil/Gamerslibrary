@@ -1,3 +1,4 @@
+
 <body>
 <div class="container" id="registrations_new">
   <div class="row" style="text-align: center;">
@@ -8,7 +9,16 @@
       <p class="text-center">セーブデータを作成してください</p>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-   
+      
+      <div class="field">
+        <%= f.label "名前(1文字以上１２文字以内)"%>
+        <% if @minimum_name_length %>
+          <em>(<%= @minimum_name_length %> 文字以上)</em>
+        <% end %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+      
+      
       <div class="field">
         <%= f.label "イーメール"%><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

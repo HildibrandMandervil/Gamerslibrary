@@ -9,12 +9,14 @@
   font-family: 'ドット文字';
 }
 
-input  {
+input,textarea  {
   font-family: Futura, 'Century Gothic', YuGothic!important;
 }
 
+
+
 body {
-     background-color: #486d46;
+   background-color: #486d46;
    background-image: url("../images/background.jpg");
    background-size: cover;
    background-attachment: fixed;
@@ -38,13 +40,110 @@ body {
 }
 
 .message {
+width: 100%;
+height: 290px;
+overflow-y: scroll;
 position: absolute;
-top: 20%;
-padding: 30px;
-margin-left: 50px;
+top: 10px;
+padding: 0 16px;
+}
+.message::-webkit-scrollbar{
+  display: none;
 }
 .admin_icon {
- margin-left: 800px;
  width: 200px;
  height: 300px;
 }
+
+.midashi {
+ color: #ffffff;
+ font-size: 25px;
+}
+
+.status {
+  border: 2px solid #ffffff;
+	width: 300px;
+	height: 200px;
+	padding: 10px;
+	margin: 20px 0px ;
+	color: #ffffff;
+
+}
+
+.adventuredata {
+  border: 2px solid #ffffff;
+	width: 300px;
+	height: auto;
+	padding: 10px;
+	margin: 20px 0px;
+	color: #ffffff;
+}
+
+.back{
+    width: 400px;
+    background: #000000;
+    padding: 50px;
+    outline: 2px solid #ffffff;
+    outline-offset: -10px ;
+}
+
+.profile{
+    border: 2px solid #ffffff;
+    padding: 10px;
+}
+
+.post_body{
+    white-space: pre-wrap;
+}
+
+.col-md-7{
+    width: 600px;
+    background: #000000;
+    padding: 50px;
+    outline: 2px solid #ffffff;
+    outline-offset: -10px ;
+}
+
+th,.introductionbody,.form-group,h2{
+    color:#ffffff;
+}
+
+.introduction{
+    vertical-align: top;
+    width: 200px;
+    word-wrap: break-word;
+    height: 146.07px;
+}
+
+.fellow {
+    border: 2px solid #ffffff;
+	color: #ffffff;
+}
+
+.col-md-12{
+    background: #000000;
+    padding: 50px;
+    outline: 2px solid #ffffff;
+    outline-offset: -10px ;
+}
+
+.post_datum-image{
+  text-align: center;
+}
+
+.post_datum-title{
+  font-size: 36px ;
+  text-align: center;
+}
+
+.edit_introduction{
+  width: 400px;
+  height: 150px;
+}
+
+
+.table thead th {
+    border-bottom: none;
+    border-color: #ffffff;
+}
+

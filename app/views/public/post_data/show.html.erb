@@ -1,0 +1,37 @@
+<%= flash[:notice] %>
+<%= render 'public/users/userprofile', user:current_user, post_datum:@post_datum %>
+
+<div class="col-md-8 offset-md-1">
+  <h2>記録の閲覧</h2>
+    <table class="table table-hover table-inverse">
+      <tbody> 
+        <tr>
+          <td>
+            <%#= link_to user_path do %>
+              <%#= image_tag @user.get_profile_image(80,80) %></br>
+            <%#end%>
+            <%= link_to user_path do %>
+              <%= @user.name %>
+            <%end%>
+          </td>
+          <td>
+            <%= @datum.title %>
+          </td>
+          <td>
+            <%= @datum.introduction %>
+          </td>
+          <td>
+            <% if @datum.user == current_user %>
+              <%= link_to "編集", edit_post_datum_path(@book.id),class:"btn btn-success" %>
+            <%end%>
+          </td>
+          <td>
+            <% if @datum.user == current_user %>
+              <%= link_to "削除",post_datum_path(@datum.id), method: :delete,class:"btn btn-danger","data-confirm" => "この記録を消しますか？"  %>
+            <%end%>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

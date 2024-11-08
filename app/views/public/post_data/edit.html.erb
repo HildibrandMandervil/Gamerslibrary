@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto ">
+      
+        <h2>記録を上書きしますか？</h2>
+        
+        <%= form_with model: @post_datum do |f| %>
+          <div class="form-group">
+            <label for="inputName">タイトル</label><br />
+            <%= f.text_field :title, autofocus: true, id:"inputTitle"%>
+          </div>
+          <div class="form-group">
+            <label for="inputName">感想</label><br />
+            <%= f.text_area :introduction, autofocus: true, id:"introduction",class:"edit_introduction"%>
+          </div>
+          <%= f.submit "更新", class:"btn btn-success text-white " %>
+        <% end %>
+        <%= link_to "戻る" ,post_datum_path(params[:id]) %>|<%= link_to "一覧に戻る",post_data_path %>
+      
+    </div>
+  </div>
+</div>
