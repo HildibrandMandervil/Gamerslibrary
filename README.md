@@ -36,3 +36,8 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 ​
+###仕様素材
+・illustAC  
+　https://www.ac-illust.com
+・DOT ILLUST  
+  https://dot-illust.net
