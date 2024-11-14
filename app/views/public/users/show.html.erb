@@ -1,6 +1,6 @@
 <%= flash[:notice] %>
 
-<%= render 'public/users/userprofile',user:@user, post_datum:@post_datum %>
+<%= render 'public/users/userprofile',user:@user, post_datum:@post %>
 
  <div class="col-md-7 offset-md-2">
          <h2>冒険の記録</h2>
@@ -15,20 +15,20 @@
             </thead>
 
          <tbody>
-             <% @user.post_data.each do |f| %>
+             <% @user.posts.each do |post| %>
           <tr>
            <td>
-             <%= link_to post_datum_path do %>
-             <%= image_tag @user.get_image(80,80) %>
+             <%= link_to post_path do %>
+             <%= image_tag post.get_image(80,80) %>
              <%end%>
            </td>
            <td>
-             <%= link_to post_datum_path(f.id) do %>
-              <div style="width:150px; word-wrap: break-word;"><%= f.title %></div>
+             <%= link_to post_path(post.id) do %>
+              <div style="width:150px; word-wrap: break-word;"><%= post.title %></div>
              <%end%>
             </td>
            <td class="introductionbody">
-              <div style="width:280px; word-wrap: break-word;"><%= f.body %></div>
+              <div style="width:280px; word-wrap: break-word;"><%= post.body %></div>
            </td>
           </tr>
          <%end%>

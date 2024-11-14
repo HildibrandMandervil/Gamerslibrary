@@ -1,25 +1,26 @@
 class Public::UsersController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit,:updata,:destroy]
+  
   def index
     @users = User.all
-    @post_datum = PostDatum.new
-    
+    @new_post = Post.new
+
   end
 
   def show
     @user = User.find(params[:id])
-    @post_data = @user.post_data
-    @post_datum = PostDatum.new
-    
+    @posts = @user.posts
+    @new_post = Post.new
+
   end
 
   def edit
      @user = User.find(params[:id])
      @minimum_name_length = User.validators_on(:name)[0].options[:minimum]
      @maximum_name_length = User.validators_on(:name)[0].options[:maximum]
-     @post_datum = PostDatum.find(params[:id])
   end
 
-  def update
+  def updat
       @user =User.find(params[:id])
   if  @user.update(user_params)
       flash[:notice] = "データをセーブしました。"
@@ -27,9 +28,9 @@ class Public::UsersController < ApplicationController
   else
       @users = User.all
       render :edit
+  end    
   end
-  end
-  
+
   def destroy
      @users=User.all
      user=User.find(params[:id])
@@ -40,6 +41,13 @@ class Public::UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction, :post_image)
+  end
+  
+  def is_matching_login_user
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to root_path
+    end
   end
 
 end

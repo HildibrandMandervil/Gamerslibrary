@@ -6,6 +6,7 @@
 <p>セーブデータをロードしてください</p>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= flash[:alert]%>
   <div class="field">
     <%= f.label :イーメール %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -30,6 +31,6 @@
 
  <%= link_to "セーブデータを作成する",new_user_registration_path %>
 
-  </div>  
- </div>  
+  </div>
+ </div>
 </div>
