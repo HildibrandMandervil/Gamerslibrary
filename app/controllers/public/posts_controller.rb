@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :is_matching_login_user, only: [:edit,:updata,:destroy]
-  
+
   def show
     @post =Post.find(params[:id])
     @new_post=Post.new

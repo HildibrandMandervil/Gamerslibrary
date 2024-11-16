@@ -2,8 +2,9 @@ class Public::UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit,:updata,:destroy]
   
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :desc).page(params[:page]).per(7) 
     @new_post = Post.new
+    
 
   end
 
