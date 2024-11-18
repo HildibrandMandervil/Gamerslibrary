@@ -21,7 +21,7 @@ class Public::UsersController < ApplicationController
      @maximum_name_length = User.validators_on(:name)[0].options[:maximum]
   end
 
-  def updat
+  def update
       @user =User.find(params[:id])
   if  @user.update(user_params)
       flash[:notice] = "データをセーブしました。"
